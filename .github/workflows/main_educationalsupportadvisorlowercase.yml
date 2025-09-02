@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: creducationalsupportadvisor.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f6d969657e724a169570fda421cf647c }}/educationalsupportadvisorlowercase:${{ github.sha }}
+        tags: creducationalsupportadvisor.azurecr.io/educationalsupportadvisorlowercase:${{ github.sha }}
         file: ./WebApp.Dockerfile
 
   deploy:
