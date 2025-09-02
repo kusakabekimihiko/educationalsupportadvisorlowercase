@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://creducationalsupportadvisor.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_ce5a9cc522394b56be96dc7240f6b6d8 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_373bfe1fdb4c41cdbad53fbab03b99f1 }}
+        registry: https://containerregistryeducationalsupportadvisor.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_3771213fd2964a97821c50fea6826819 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_289741f87bb1440585f6f02df6e671a5 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: creducationalsupportadvisor.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ce5a9cc522394b56be96dc7240f6b6d8 }}/educationalsupportadvisorlowercase:${{ github.sha }}
+        tags: containerregistryeducationalsupportadvisor.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_3771213fd2964a97821c50fea6826819 }}/educationalsupportadvisorlowercase:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'educationalsupportadvisorlowercase'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_144ac0fb741e4963ac02f005918bfb1e }}
-        images: 'creducationalsupportadvisor.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ce5a9cc522394b56be96dc7240f6b6d8 }}/educationalsupportadvisorlowercase:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_38ae4332c3c54699be4b305fd2edaecd }}
+        images: 'containerregistryeducationalsupportadvisor.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_3771213fd2964a97821c50fea6826819 }}/educationalsupportadvisorlowercase:${{ github.sha }}'
